@@ -1,20 +1,19 @@
 {
-  "name": "portfolio-website",
+  "name": "your-project-name",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "lint:html": "npx htmlhint '**/*.html'",
+    "lint:css": "npx stylelint '**/*.css'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abid-dhariwal/Portfolio-Website.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abid-dhariwal/Portfolio-Website/issues"
-  },
-  "homepage": "https://github.com/abid-dhariwal/Portfolio-Website#readme"
+  "devDependencies": {
+
+    "htmlhint": "^0.14.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+
+  }
+
 }
