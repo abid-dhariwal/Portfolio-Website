@@ -1,0 +1,32 @@
+name: Lint HTML and CSS
+
+on:
+  push:
+    branches:
+      - develop  # Trigger on push to the develop branch
+  pull_request:
+    branches:
+      - develop  # Trigger on pull requests to the develop branch
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest  # Use an Ubuntu runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Specify the Node.js version
+
+      - name: Install dependencies
+        run: |
+          npm install --save-dev stylelint stylelint-config-standard htmlhint  # Install stylelint, htmlhint, and config
+
+      - name: Lint HTML files with HTMLHint
+        run: npx htmlhint "/*.html"  # Adjust the glob pattern if needed
+
+      - name: Lint CSS files with Stylelint and auto-fix
+        run: npx stylelint "/*.css" --fix  # Automatically fix fixable issues in CSS files
